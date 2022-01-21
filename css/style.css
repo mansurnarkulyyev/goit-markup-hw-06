@@ -117,9 +117,6 @@ a {
   color: var(--body-color);
 }
 
-.header-nav-line::before {
-  opacity: 0;
-}
 .header-nav-link::before {
   content: " ";
   position: absolute;
@@ -139,9 +136,10 @@ a {
   opacity: 1;
 }
 
-.active .header-nav-link {
-  color: var(--accent-color);
+.active::before {
+  content: " ";
   cursor: pointer;
+  opacity: 1;
 }
 .header-info {
   margin-left: auto;
@@ -462,7 +460,6 @@ a {
   margin-left: 0px;
 }
 
-/* start */
 .product {
   background: var(--white-color);
   border: 1px solid #eeeeee;
@@ -471,8 +468,6 @@ a {
   margin-left: 30px;
   margin-top: 30px;
   box-shadow: greenyellow;
-  /* transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); */
-  overflow: hidden;
 }
 
 .product:hover .product-actions {
@@ -500,28 +495,14 @@ a {
   display: inline-block;
   width: 100%;
   height: 100%;
-  background-color: green;
-  /* opacity: 0; */
+  background: rgba(33, 150, 243, 0.9);
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .product-thumb {
+  overflow: hidden;
   position: relative;
-  /* top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; */
-  /* background: rgba(33, 150, 243, 0.9); */
-  /* display: inline-block;
-  content: " ";
-  position: absolute;
-  
-  /* overflow: hidden; */
-  /* opacity: 0; */
-  /* margin-left: -1px;
-  background: rgba(33, 150, 243, 0.9);
-   */
 }
 
 .product-actions {
@@ -535,15 +516,12 @@ a {
   font-size: 18px;
   line-height: 1.55;
   letter-spacing: 0.03em;
-  /* color: #188ce8; */
   color: var(--white-color);
   padding: 63px 24px;
   opacity: 0;
-  background: rgba(33, 150, 243, 0.9);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* end */
 .portfolio-list-item {
   margin: 20px 0px 20px 24px;
 }
@@ -917,6 +895,10 @@ a {
 
 .inner-textarea::placeholder {
   color: rgba(117, 117, 117, 0.5);
+}
+
+.inner-textarea:not(:placeholder-shown) {
+  border: 1px solid var(--accent-color);
 }
 
 .agreement-wrap {
